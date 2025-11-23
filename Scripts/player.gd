@@ -12,20 +12,11 @@ func _physics_process(delta):
 #entonces se aplica un vector para trasladar al Player
 func player_movement(delta):
 	
-	if Input.is_action_pressed("ui_right"):
-		velocity.x = speed
-		velocity.y = 0
-	elif Input.is_action_pressed("ui_left"):
-		velocity.x = -speed
-		velocity.y = 0
-	elif Input.is_action_pressed("ui_down"):
-		velocity.y = speed
-		velocity.x = 0
-	elif Input.is_action_pressed("ui_up"):
-		velocity.y = -speed
-		velocity.x = 0
-	else:
-		velocity.x = 0
-		velocity.y = 0
+	var input = Vector2(
+		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
+		Input.get_action_strength("ui_up") - Input.get_action_strength("ui_down")
+	)
+	
+	velocity = input.normalized() * speed
 
 	move_and_slide()
