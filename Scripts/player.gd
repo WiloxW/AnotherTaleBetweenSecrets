@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 #Creada variable de velocidad para el movimiento
-const speed = 180
+@export var speed = 180
+var last_dir := Vector2.DOWN
 
 #funcion que procesa las fisicas y las refleja frame por frame
 #en el juego
@@ -20,8 +21,8 @@ func player_movement():
 	velocity = input.normalized() * speed
 
 	move_and_slide()
-	
 	clamp_player_to_screen()
+	update_animation()
 
 func clamp_player_to_screen():
 	var screen_size = get_viewport_rect().size
@@ -36,3 +37,24 @@ func clamp_player_to_screen():
 	
 	position.x = clamp(position.x, half_w, screen_size.x - half_w)
 	position.y = clamp(position.y, half_h, screen_size.y - half_h)
+
+func update_animation():
+	var sprite = $AnimatedSprite2D
+	
+	if velocity.length() == 0:
+		sprite.stop()
+	else:
+		if abs(velocity.x) > abs(velocity.y):
+			# movimiento horizontal
+			sprite.animation = "walk side"
+			sprite.flip_h = velocity.x > 0
+			last_dir = Vector2(sign(velocity.x), 0)
+		else:
+			# movimiento vertical
+			if velocity.y > 0:
+				sprite.animation = "walk forward"
+				last_dir = Vector2(0, 1)
+			else:
+				sprite.animation = "walk backward"
+				last_dir = Vector2(0, -1)
+	sprite.play()
