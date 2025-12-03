@@ -1,9 +1,10 @@
-[gd_scene load_steps=55 format=3 uid="uid://brcufl3lnhuxi"]
+[gd_scene load_steps=56 format=3 uid="uid://brcufl3lnhuxi"]
 
 [ext_resource type="Script" uid="uid://bkqrw85ccvsn0" path="res://Scripts/player.gd" id="1_vgqql"]
 [ext_resource type="Texture2D" uid="uid://ciymifqd4l4v0" path="res://Assets/Sprites/WalkBackward-16 (1).png" id="2_fkybt"]
 [ext_resource type="Texture2D" uid="uid://dyvmqtivdjey8" path="res://Assets/Sprites/WalkForward-16.png" id="3_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://bgkhayi8l4qbf" path="res://Assets/Sprites/WalkLeft-16.png" id="4_3smsa"]
+[ext_resource type="Script" uid="uid://wi0xq70m6ylp" path="res://Scripts/player_pickup.gd" id="5_fkybt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
 size = Vector2(32, 64)
@@ -374,6 +375,7 @@ animation = &"walk forward"
 flip_h = true
 
 [node name="PickupArea" type="Area2D" parent="."]
+script = ExtResource("5_fkybt")
 
 [node name="PickupCollision" type="CollisionShape2D" parent="PickupArea"]
 shape = SubResource("RectangleShape2D_vgqql")
