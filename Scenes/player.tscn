@@ -365,10 +365,15 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_vgqql")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vgqql")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1htnp")
 animation = &"walk forward"
 flip_h = true
+
+[node name="PickupArea" type="Area2D" parent="."]
+
+[node name="PickupCollision" type="CollisionShape2D" parent="PickupArea"]
+shape = SubResource("RectangleShape2D_vgqql")
