@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 #Creada variable de velocidad para el movimiento
 @export var speed = 180
@@ -8,6 +9,7 @@ var last_dir := Vector2.DOWN
 #en el juego
 func _physics_process(_delta):
 	player_movement()
+	
 
 #comprobar que si algunas de las 4 direcciones esta siendoo
 #entonces se aplica un vector para trasladar al Player
