@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dl0p4jxxat5l"]
+[gd_scene load_steps=15 format=4 uid="uid://dl0p4jxxat5l"]
 
 [ext_resource type="Script" uid="uid://bse373lbpp35h" path="res://Scripts/l_ab.gd" id="1_h5r0x"]
 [ext_resource type="Texture2D" uid="uid://c0s3eyeehe70k" path="res://Assets/Tiles/tilesFloor.png" id="2_fydyf"]
@@ -2034,6 +2034,9 @@ sources/0 = SubResource("TileSetAtlasSource_6jcdl")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fydyf"]
 size = Vector2(62.5, 72)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5r0x"]
+size = Vector2(20, 24.814812)
+
 [node name="lab" type="Node2D"]
 script = ExtResource("1_h5r0x")
 
@@ -2073,8 +2076,21 @@ editor_draw_limits = true
 position = Vector2(640, 36)
 shape = SubResource("RectangleShape2D_fydyf")
 
+[node name="TransPoint_roomB" type="Area2D" parent="."]
+position = Vector2(880, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransPoint_roomB"]
+position = Vector2(0, 7.7999954)
+scale = Vector2(3.2, 3.2400007)
+shape = SubResource("RectangleShape2D_h5r0x")
+
 [node name="SpawnRoomA" type="Marker2D" parent="."]
+visible = false
 position = Vector2(648, 112)
+
+[node name="SpawnRoomB" type="Marker2D" parent="."]
+position = Vector2(888, 112)
 
 [connection signal="body_entered" from="TransPoint_roomA" to="." method="_on_trans_point_room_a_body_entered"]
 [connection signal="body_exited" from="TransPoint_roomA" to="." method="_on_trans_point_room_a_body_exited"]
+[connection signal="body_entered" from="TransPoint_roomB" to="." method="_on_trans_point_room_b_body_entered"]
