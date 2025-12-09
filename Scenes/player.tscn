@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bgkhayi8l4qbf" path="res://Assets/Sprites/WalkLeft-16.png" id="4_3smsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
-size = Vector2(32, 64)
+size = Vector2(28, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
 atlas = ExtResource("2_fkybt")
@@ -366,9 +366,10 @@ animations = [{
 script = ExtResource("1_vgqql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_vgqql")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1htnp")
-animation = &"walk forward"
+animation = &"walk backward"
 flip_h = true
