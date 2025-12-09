@@ -2,6 +2,9 @@ extends Node
  
 var current_scene = "lab" #LabCenter, room_a, roomB, roomC
 var transition_scene = false
+var spawn_id := ""
+
+var spawn_point_name := ""
 
 var player_enterA_posx = 0
 var player_enterA_posy = 0
