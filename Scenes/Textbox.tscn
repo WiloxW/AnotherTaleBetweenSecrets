@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0qnbigdguexu"]
+
+[ext_resource type="Script" uid="uid://dgpfoagmln7c5" path="res://Scripts/Textbox.gd" id="1"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 369.0
+offset_top = 577.0
+offset_right = 409.0
+offset_bottom = 617.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

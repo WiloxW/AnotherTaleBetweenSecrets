@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dl0p4jxxat5l"]
+[gd_scene load_steps=22 format=4 uid="uid://dl0p4jxxat5l"]
 
 [ext_resource type="Script" uid="uid://bse373lbpp35h" path="res://Scripts/l_ab.gd" id="1_h5r0x"]
 [ext_resource type="Texture2D" uid="uid://c0s3eyeehe70k" path="res://Assets/Tiles/tilesFloor.png" id="2_fydyf"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://brcufl3lnhuxi" path="res://Scenes/player.tscn" id="5_3l37x"]
 [ext_resource type="AudioStream" uid="uid://2xmxjbb8ds8f" path="res://Assets/Sounds/door-opening-78648.mp3" id="6_fydyf"]
 [ext_resource type="PackedScene" uid="uid://bne0udxmu2y5k" path="res://Scenes/transaction_animation.tscn" id="7_kvj5b"]
+[ext_resource type="PackedScene" uid="uid://c0qnbigdguexu" path="res://Scenes/Textbox.tscn" id="9_3l37x"]
+[ext_resource type="PackedScene" uid="uid://bjjyqvol1ywm3" path="res://Scenes/Item/Item.tscn" id="10_nayjt"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_kheqh"]
 tile_data = PackedInt32Array(0, 1572864, 30, 393216, 1572864, 30, 786432, 1572864, 30, 1179648, 1572864, 30, 1572864, 1572864, 30, 1966080, 1572864, 30, 2359296, 1572864, 30)
@@ -2606,6 +2608,11 @@ position = Vector2(1056, 360)
 stream = ExtResource("6_fydyf")
 
 [node name="TransactionAnimation" parent="." instance=ExtResource("7_kvj5b")]
+
+[node name="TextBox" parent="." instance=ExtResource("9_3l37x")]
+
+[node name="Hola" parent="." instance=ExtResource("10_nayjt")]
+position = Vector2(280, 200)
 
 [connection signal="body_entered" from="TransPoint_roomA" to="." method="_on_trans_point_room_a_body_entered"]
 [connection signal="body_exited" from="TransPoint_roomA" to="." method="_on_trans_point_room_a_body_exited"]

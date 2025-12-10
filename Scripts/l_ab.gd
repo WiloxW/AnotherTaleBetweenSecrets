@@ -1,9 +1,16 @@
 extends Node2D
 
 @onready var TransactionAnimation = $TransactionAnimation/AnimationPlayer
+@onready var TextBox = $TextBox
 var door_sound : AudioStreamPlayer2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await get_tree().process_frame
+	TextBox.show_text([
+	"Esta es la primera línea.",
+	"Y esta es la segunda.",
+	"¡Funcionó como un RPG clásico!"
+] as Array[String])
 	TransactionAnimation.play("fade_out")
 	door_sound = $Dooropen
 	if not MusicManager.music_player.playing:
