@@ -4281,6 +4281,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_i06hf")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ff4m"]
+size = Vector2(82, 20)
 
 [node name="room_b" type="Node2D"]
 script = ExtResource("1_cjrij")
@@ -4327,7 +4328,7 @@ editor_draw_limits = true
 [node name="BacklabB" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BacklabB"]
-position = Vector2(56, 600)
+position = Vector2(87, 600)
 shape = SubResource("RectangleShape2D_1ff4m")
 
 [connection signal="body_entered" from="BacklabB" to="." method="_on_backlab_b_body_entered"]
