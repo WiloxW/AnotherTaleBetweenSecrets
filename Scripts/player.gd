@@ -1,13 +1,19 @@
 extends CharacterBody2D
+class_name Player
 
 #Creada variable de velocidad para el movimiento
 @export var speed = 180
 var last_dir := Vector2.DOWN
+var footstep_sound : AudioStreamPlayer2D
+
+func _ready():
+	footstep_sound = $Footsteps
 
 #funcion que procesa las fisicas y las refleja frame por frame
 #en el juego
 func _physics_process(_delta):
 	player_movement()
+	
 
 #comprobar que si algunas de las 4 direcciones esta siendoo
 #entonces se aplica un vector para trasladar al Player
@@ -43,7 +49,12 @@ func update_animation():
 	
 	if velocity.length() == 0:
 		sprite.stop()
+		
+		if footstep_sound.playing:
+			footstep_sound.stop()
 	else:
+		if not footstep_sound.playing:
+			footstep_sound.play()
 		if abs(velocity.x) > abs(velocity.y):
 			# movimiento horizontal
 			sprite.animation = "walk side"
