@@ -6061,7 +6061,7 @@ tile_set = SubResource("TileSet_fnn60")
 collision_visibility_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("5_7i4pd")]
-position = Vector2(88, 520)
+position = Vector2(96, 400)
 scale = Vector2(2, 2)
 disable_mode = 2
 collision_layer = 3

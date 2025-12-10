@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b6n241x7gieqg" path="res://Assets/Sounds/step_soundwav-14903.mp3" id="5_fkybt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
-size = Vector2(28, 22)
+size = Vector2(28, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
 atlas = ExtResource("2_fkybt")
@@ -367,12 +367,12 @@ animations = [{
 script = ExtResource("1_vgqql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 16)
+position = Vector2(0, 13)
 shape = SubResource("RectangleShape2D_vgqql")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1htnp")
-animation = &"walk backward"
+animation = &"walk side"
 flip_h = true
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
