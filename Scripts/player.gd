@@ -29,7 +29,7 @@ func clamp_player_to_screen():
 	var half_w = 0.0
 	var half_h = 0.0
 	
-	var cs = $CollisionShape2D
+	var cs = $BodyCollision
 	if cs and cs.shape:
 		var shape = cs.shape
 		half_w = shape.extents.x
@@ -39,7 +39,7 @@ func clamp_player_to_screen():
 	position.y = clamp(position.y, half_h, screen_size.y - half_h)
 
 func update_animation():
-	var sprite = $AnimatedSprite2D
+	var sprite = $Sprite
 	
 	if velocity.length() == 0:
 		sprite.stop()
