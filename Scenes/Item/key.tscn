@@ -7,6 +7,7 @@
 size = Vector2(76, 34)
 
 [node name="Key" instance=ExtResource("1_mpf1a")]
+item_id = "KeyA"
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_nb4al")

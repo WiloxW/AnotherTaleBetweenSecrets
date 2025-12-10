@@ -5,12 +5,15 @@ extends Node2D
 var door_sound : AudioStreamPlayer2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if global.collected_items.has("KeyA"):
+		queue_free()
 	await get_tree().process_frame
-	TextBox.show_text([
-	"Esta es la primera línea.",
-	"Y esta es la segunda.",
-	"¡Funcionó como un RPG clásico!"
-] as Array[String])
+	if not global.dialog_shown.has("intro_lab"):
+		TextBox.show_text([
+		"...No puedo creer que logre entrar",
+		"necesito seguir avanzando"
+		] as Array[String])
+		global.dialog_shown["intro_lab"] = true
 	TransactionAnimation.play("fade_out")
 	door_sound = $Dooropen
 	if not MusicManager.music_player.playing:

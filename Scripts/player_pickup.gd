@@ -12,4 +12,6 @@ func detect_collisions():
 
 func pickup(item):
 	inventory.append(item.name)
+	print(inventory.size())
+	global.collected_items[item.item_id] = true
 	item.queue_free()

@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 #Creada variable de velocidad para el movimiento
-@export var speed = 180
+@export var speed: float = 180.0
 var last_dir := Vector2.DOWN
 var footstep_sound : AudioStreamPlayer2D
 
@@ -18,7 +18,10 @@ func _physics_process(_delta):
 #comprobar que si algunas de las 4 direcciones esta siendoo
 #entonces se aplica un vector para trasladar al Player
 func player_movement():
-	
+	if not global.can_move:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
 	var input = Vector2(
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")

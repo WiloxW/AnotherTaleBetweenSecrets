@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://2xmxjbb8ds8f" path="res://Assets/Sounds/door-opening-78648.mp3" id="6_fydyf"]
 [ext_resource type="PackedScene" uid="uid://bne0udxmu2y5k" path="res://Scenes/transaction_animation.tscn" id="7_kvj5b"]
 [ext_resource type="PackedScene" uid="uid://c0qnbigdguexu" path="res://Scenes/Textbox.tscn" id="9_3l37x"]
-[ext_resource type="PackedScene" uid="uid://bjjyqvol1ywm3" path="res://Scenes/Item/Item.tscn" id="10_nayjt"]
+[ext_resource type="PackedScene" uid="uid://dlowvajvwvqiw" path="res://Scenes/Item/key.tscn" id="10_nayjt"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_kheqh"]
 tile_data = PackedInt32Array(0, 1572864, 30, 393216, 1572864, 30, 786432, 1572864, 30, 1179648, 1572864, 30, 1572864, 1572864, 30, 1966080, 1572864, 30, 2359296, 1572864, 30)
@@ -2611,8 +2611,9 @@ stream = ExtResource("6_fydyf")
 
 [node name="TextBox" parent="." instance=ExtResource("9_3l37x")]
 
-[node name="Hola" parent="." instance=ExtResource("10_nayjt")]
-position = Vector2(280, 200)
+[node name="Key" parent="." instance=ExtResource("10_nayjt")]
+position = Vector2(248, 192)
+item_id = "KeyA"
 
 [connection signal="body_entered" from="TransPoint_roomA" to="." method="_on_trans_point_room_a_body_entered"]
 [connection signal="body_exited" from="TransPoint_roomA" to="." method="_on_trans_point_room_a_body_exited"]
