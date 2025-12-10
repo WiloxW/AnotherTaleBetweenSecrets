@@ -3,6 +3,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if not MusicManager.music_player.playing:
+		MusicManager.music_player.stream = load("res://Assets/Music/horror-background-atmosphere-011-240870.mp3")
+		MusicManager.music_player.play()
 	if global.spawn_id != "":
 		var spawn = get_node_or_null(global.spawn_id)
 		if spawn:
