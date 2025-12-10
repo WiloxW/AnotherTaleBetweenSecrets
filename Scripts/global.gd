@@ -6,6 +6,7 @@ var spawn_id := ""
 var can_move := true
 var dialog_shown := {} 
 var collected_items = {}
+var inventory: Array = []
 
 var spawn_point_name := ""
 
