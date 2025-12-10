@@ -1,6 +1,8 @@
 extends Area2D
 
-func _process(delta: float) -> void:
+var inventory = []
+
+func _process(_delta: float) -> void:
 	detect_collisions()
 
 func detect_collisions():
@@ -9,4 +11,5 @@ func detect_collisions():
 			pickup(collision)
 
 func pickup(item):
+	inventory.append(item.name)
 	item.queue_free()
