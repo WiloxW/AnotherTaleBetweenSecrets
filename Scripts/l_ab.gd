@@ -1,8 +1,10 @@
 extends Node2D
 
+@onready var TransactionAnimation = $TransactionAnimation/AnimationPlayer
 var door_sound : AudioStreamPlayer2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	TransactionAnimation.play("fade_out")
 	door_sound = $Dooropen
 	if not MusicManager.music_player.playing:
 		MusicManager.music_player.stream = load("res://Assets/Music/horror-background-atmosphere-011-240870.mp3")
@@ -22,6 +24,8 @@ func _process(delta: float) -> void:
 
 func _on_trans_point_room_a_body_entered(body) -> void:
 	if body is Player:
+		TransactionAnimation.play("fade_in")
+		await get_tree().create_timer(0.3).timeout
 		MusicManager.play_sfx("res://Assets/Sounds/opening-door-411632.mp3")
 		get_tree().change_scene_to_file("res://Scenes/room_a.tscn")
 	
@@ -29,11 +33,15 @@ func _on_trans_point_room_a_body_entered(body) -> void:
 
 func _on_trans_point_room_b_body_entered(body: Node2D) -> void:
 	if body is Player:
+		TransactionAnimation.play("fade_in")
+		await get_tree().create_timer(0.3).timeout
 		MusicManager.play_sfx("res://Assets/Sounds/opening-door-411632.mp3")
 		get_tree().change_scene_to_file("res://Scenes/room_b.tscn")
 		
 
 func _on_trans_point_room_c_body_entered(body: Node2D) -> void:
 	if body is Player:
+		TransactionAnimation.play("fade_in")
+		await get_tree().create_timer(0.3).timeout
 		MusicManager.play_sfx("res://Assets/Sounds/opening-door-411632.mp3")
 		get_tree().change_scene_to_file("res://Scenes/room_c.tscn")

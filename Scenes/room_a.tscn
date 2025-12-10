@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dww8nrs27c2qk"]
+[gd_scene load_steps=18 format=4 uid="uid://dww8nrs27c2qk"]
 
 [ext_resource type="Texture2D" uid="uid://c0s3eyeehe70k" path="res://Assets/Tiles/tilesFloor.png" id="1_swm2u"]
 [ext_resource type="Script" uid="uid://dx3a3ol8pwn6p" path="res://Scripts/room_a.gd" id="1_xdy8r"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://brcufl3lnhuxi" path="res://Scenes/player.tscn" id="2_oefx1"]
 [ext_resource type="Texture2D" uid="uid://cxw41a6tvm6dg" path="res://Assets/Tiles/tilesWalls.png" id="2_r428q"]
 [ext_resource type="Texture2D" uid="uid://bnu3x5wd0lifo" path="res://Assets/Tiles/Box.png" id="3_kk2k7"]
+[ext_resource type="PackedScene" uid="uid://bne0udxmu2y5k" path="res://Scenes/transaction_animation.tscn" id="7_kmeke"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_kheqh"]
 tile_data = PackedInt32Array(0, 1572864, 30, 393216, 1572864, 30, 786432, 1572864, 30, 1179648, 1572864, 30, 1572864, 1572864, 30, 1966080, 1572864, 30, 2359296, 1572864, 30)
@@ -2218,5 +2219,7 @@ editor_draw_limits = true
 position = Vector2(376, 600)
 scale = Vector2(2.6167665, 2.0769174)
 shape = SubResource("RectangleShape2D_kmeke")
+
+[node name="TransactionAnimation" parent="." instance=ExtResource("7_kmeke")]
 
 [connection signal="body_entered" from="BacklabA" to="." method="_on_backlab_a_body_entered"]
