@@ -4,7 +4,7 @@ func _process(delta: float) -> void:
 	detect_collisions()
 
 func detect_collisions():
-	for collision in get_overlapping_bodies():
+	for collision in get_overlapping_areas():
 		if "pickable" in collision and collision.pickable:
 			pickup(collision)
 

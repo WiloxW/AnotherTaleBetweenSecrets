@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlowvajvwvqiw"]
+
+[ext_resource type="PackedScene" uid="uid://bjjyqvol1ywm3" path="res://Scenes/Item/Item.tscn" id="1_mpf1a"]
+[ext_resource type="Texture2D" uid="uid://cpah8xkh7o518" path="res://Assets/Sprites/cartoon-doodle-gold-key-free-vector.png" id="2_jelpu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb4al"]
+size = Vector2(76, 34)
+
+[node name="Key" instance=ExtResource("1_mpf1a")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_nb4al")
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_jelpu")
