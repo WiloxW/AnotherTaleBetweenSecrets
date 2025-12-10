@@ -1,6 +1,6 @@
 extends Area2D
 
-var inventory = []
+var inventory : Array = []
 
 func _process(_delta: float) -> void:
 	detect_collisions()
@@ -11,5 +11,7 @@ func detect_collisions():
 			pickup(collision)
 
 func pickup(item):
-	inventory.append(item.name)
+	global.inventory.append(item.name)
+	print(global.inventory)
+	global.collected_items[item.item_id] = true
 	item.queue_free()

@@ -1,12 +1,13 @@
-[gd_scene load_steps=17 format=4 uid="uid://chko0r72g57hj"]
+[gd_scene load_steps=18 format=4 uid="uid://chko0r72g57hj"]
 
-[ext_resource type="Script" uid="uid://dx3a3ol8pwn6p" path="res://Scripts/room_a.gd" id="1_vv60k"]
+[ext_resource type="Script" path="res://Scripts/room_a.gd" id="1_vv60k"]
 [ext_resource type="Texture2D" uid="uid://c0s3eyeehe70k" path="res://Assets/Tiles/tilesFloor.png" id="2_nbocb"]
 [ext_resource type="Texture2D" uid="uid://cxw41a6tvm6dg" path="res://Assets/Tiles/tilesWalls.png" id="3_1gn1p"]
 [ext_resource type="Texture2D" uid="uid://dpdmuhtognhpy" path="res://Assets/Tiles/tilesStuff.png" id="4_ne8xm"]
 [ext_resource type="PackedScene" uid="uid://brcufl3lnhuxi" path="res://Scenes/player.tscn" id="5_7i4pd"]
 [ext_resource type="Texture2D" uid="uid://4kvb8kekpssb" path="res://Assets/Tiles/Prompts1lab.png" id="5_nbocb"]
 [ext_resource type="PackedScene" uid="uid://bne0udxmu2y5k" path="res://Scenes/transaction_animation.tscn" id="7_1gn1p"]
+[ext_resource type="PackedScene" uid="uid://dlowvajvwvqiw" path="res://Scenes/Item/key.tscn" id="8_ne8xm"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_kheqh"]
 tile_data = PackedInt32Array(0, 1572864, 30, 393216, 1572864, 30, 786432, 1572864, 30, 1179648, 1572864, 30, 1572864, 1572864, 30, 1966080, 1572864, 30, 2359296, 1572864, 30)
@@ -6081,5 +6082,9 @@ position = Vector2(28, 416)
 shape = SubResource("RectangleShape2D_nbocb")
 
 [node name="TransactionAnimation" parent="." instance=ExtResource("7_1gn1p")]
+
+[node name="KeyC" parent="." instance=ExtResource("8_ne8xm")]
+position = Vector2(464, 400)
+item_id = "KeyC"
 
 [connection signal="body_entered" from="BacklabC" to="." method="_on_backlab_c_body_entered"]

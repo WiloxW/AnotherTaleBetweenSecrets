@@ -1,9 +1,17 @@
 extends Node2D
 
 @onready var TransactionAnimation = $TransactionAnimation/AnimationPlayer
+@onready var TextBox = $TextBox
 var door_sound : AudioStreamPlayer2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await get_tree().process_frame
+	if not global.dialog_shown.has("intro_lab"):
+		TextBox.show_text([
+		"...No puedo creer que logre entrar",
+		"necesito seguir avanzando"
+		] as Array[String])
+		global.dialog_shown["intro_lab"] = true
 	TransactionAnimation.play("fade_out")
 	door_sound = $Dooropen
 	if not MusicManager.music_player.playing:
@@ -45,3 +53,14 @@ func _on_trans_point_room_c_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(0.3).timeout
 		MusicManager.play_sfx("res://Assets/Sounds/opening-door-411632.mp3")
 		get_tree().change_scene_to_file("res://Scenes/room_c.tscn")
+
+
+func _on_trans_point_exit_body_entered(body: Node2D) -> void:
+	if body is Player:
+		var inv = global.inventory
+		if inv.size() > 2:
+			TextBox.show_text([
+			"...No puedo creer que logre entrar"
+			] as Array[String])
+			TransactionAnimation.play("fade_in")
+		
